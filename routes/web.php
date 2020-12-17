@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\AkomodasiController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +21,12 @@ use App\Http\Controllers\AkomodasiController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('posts', PostController::class);
-Route::resource('kecamatans', KecamatanController::class);
-Route::resource('akomodasis', AkomodasiController::class);
+Route::resource('/home/posts', PostController::class);
+Route::resource('admin', AdminController::class);
+Route::resource('/home/kecamatans', KecamatanController::class);
+Route::resource('/home/akomodasis', AkomodasiController::class);
+Route::resource('/home/users', UserController::class);
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'index']);
+Route::post('/home/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'store'])->name('change.password');

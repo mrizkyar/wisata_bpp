@@ -7,6 +7,10 @@ use App\Models\Kecamatan;
  
 class KecamatanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $kecamatans = Kecamatan::latest()->paginate(5);

@@ -7,6 +7,11 @@ use App\Models\Akomodasi;
  
 class AkomodasiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $akomodasis = Akomodasi::latest()->paginate(5);
