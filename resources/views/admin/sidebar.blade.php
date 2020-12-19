@@ -23,7 +23,7 @@
             <a href="/home/users" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Data User
+                Data Admin
               </p>
             </a>
           </li>

@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="inner">
                 <h3>140</h3>
 
-                <p>Data User</p>
+                <p>Data Admin</p>
               </div>
               <div class="icon">
                 <i class="fas fa-users"></i>

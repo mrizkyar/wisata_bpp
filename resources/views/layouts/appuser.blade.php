@@ -37,9 +37,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a class="nav-link" href="http://127.0.0.1:8000/posts/">{{ __('Wisata') }}</a>
-                        <a class="nav-link" href="http://127.0.0.1:8000/kecamatans/">{{ __('Kecamatan') }}</a>
-                        <a class="nav-link" href="http://127.0.0.1:8000/akomodasis/">{{ __('Akomodasi') }}</a>
+                        <a class="nav-link" href="post">{{ __('Wisata') }}</a>
+                        <a class="nav-link" href="kecamatan">{{ __('Kecamatan') }}</a>
+                        <a class="nav-link" href="akomodasi/">{{ __('Akomodasi') }}</a>
 
                     </ul>
 

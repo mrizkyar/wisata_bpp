@@ -7,6 +7,9 @@ use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PostUserController;
+use App\Http\Controllers\KecamatanUserController;
+use App\Http\Controllers\AkomodasiUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +33,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'index']);
 Route::post('/home/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'store'])->name('change.password');
+Route::resource('post', PostUserController::class);
+Route::resource('kecamatan', KecamatanUserController::class);
+Route::resource('akomodasi', AkomodasiUserController::class);
