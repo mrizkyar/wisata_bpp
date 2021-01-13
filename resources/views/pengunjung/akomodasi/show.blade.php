@@ -47,4 +47,47 @@
             </div>
         </div>
     </div>
+    <hr>
+    <h3>Komentar</h3>
+    <hr>
+    <form action="{{ route('akomodasi.comment.store', $akomodasi) }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Username</label>
+            <input type="username" name="username" class="form-control" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Komentar</label>
+            <textarea class="form-control" name="komentar" rows="3"></textarea>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </form>
+    <br>
+    <h4 class="text-center">Komentar</h4>
+    <div class="col-sm-12">
+           
+            <div class="card">
+                 @foreach ($akomodasi->comments()->get() as $comment)
+                 <div class="card-header">
+                    <h5 class="font-weight-bold">{{ $comment->username }}</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ $comment->komentar }}</p>
+                    <form action="{{ route('akomodasi.comment.destroy', $comment) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                   
+                </div>
+                @endforeach
+            
+            </div>
+           
+    </div>
+</div>
+   
 @endsection

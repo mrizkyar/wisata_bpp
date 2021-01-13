@@ -1,6 +1,6 @@
-@extends('template')
+@extends('admin.template')
  
-@section('content')
+@section('konten')
 
 <div class="content-header">
       <div class="container-fluid">

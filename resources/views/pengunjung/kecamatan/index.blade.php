@@ -1,4 +1,5 @@
 @extends('layouts.appuser')
+
  
 @section('content')
     <div class="row mt-5 mb-5">
@@ -7,7 +8,7 @@
                 <h2>Data Kecamatan</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-secondary" href=""> Back</a>
+                <a class="btn btn-secondary" href="{{ url('/') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -18,10 +19,10 @@
     </div>
     @endif
  
-    <table class="table table-bordered">
+    <table class="table table-hover">
         <tr>
             <th width="20px" class="text-center">No</th>
-            <th>Kecamatan</th>
+            <th>Nama kecamatan</th>
             <th width="280px"class="text-center">Action</th>
         </tr>
         @foreach ($kecamatans as $kecamatan)
@@ -29,7 +30,9 @@
             <td class="text-center">{{ ++$i }}</td>
             <td>{{ $kecamatan->nama_kecamatan }}</td>
             <td class="text-center">
-                <a class="btn btn-info btn-sm" href="{{ route('kecamatan.show',$kecamatan->id) }}">Show</a>
+ 
+                    <a class="btn btn-info btn-sm" href="{{ route('kecamatan.show',$kecamatan->id) }}">Show</a>
+ 
             </td>
         </tr>
         @endforeach

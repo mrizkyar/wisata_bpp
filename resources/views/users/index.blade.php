@@ -22,7 +22,7 @@
     </div>
     @endif
  
-    <table class="table table-bordered">
+    <table class="table table-hover">
         <tr>
             <th width="20px" class="text-center">No</th>
             <th>Nama user</th>

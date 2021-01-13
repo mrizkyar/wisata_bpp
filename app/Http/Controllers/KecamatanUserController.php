@@ -9,10 +9,10 @@ class KecamatanUserController extends Controller
 {
     public function index()
     {
-        $kecamatans = Kecamatan::latest()->paginate(5);
+        $kecamatans = Kecamatan::latest()->paginate(10);
  
         return view('pengunjung.kecamatan.index',compact('kecamatans'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function show(Kecamatan $kecamatan)

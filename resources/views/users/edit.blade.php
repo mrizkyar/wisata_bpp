@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('admin.template')
  
-@section('content')
+@section('konten')
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-left">

@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Etourism Balikpapan
@@ -92,4 +92,12 @@
         </main>
     </div>
 </body>
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <a class="text-dark">Kelompok 2 B.R.I E-Tourism Balikpapan</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>

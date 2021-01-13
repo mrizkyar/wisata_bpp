@@ -8,7 +8,7 @@
                 <h2>Data Wisata</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-secondary" href=""> Back</a>
+                <a class="btn btn-secondary" href="{{ url('/') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
     </div>
     @endif
  
-    <table class="table table-bordered">
+    <table class="table table-hover">
         <tr>
             <th width="20px" class="text-center">No</th>
             <th>Nama Wisata</th>

@@ -43,7 +43,7 @@
                                     <a href="http://127.0.0.1:8000/home/users/{{ Auth::user()->id }}/edit" class="dropdown-item">
                                          Edit Profile
                                      </a>
-                                     <a href="home/changepassword" class="dropdown-item">
+                                     <a href="/home/changepassword" class="dropdown-item">
                                             Change Passwords
                                     </a>
                                 </div>

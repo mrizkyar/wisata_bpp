@@ -46,4 +46,50 @@
             </div>
         </div>
     </div>
+    <hr>
+    <h3>Komentar</h3>
+    <hr>
+    
+    <form action="{{ route('post.komen.store', $post) }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Username</label>
+            <input type="username" name="username" class="form-control" id="" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Komentar</label>
+            <textarea class="form-control" name="komentar" rows="3"></textarea>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </form>
+    <br>
+    <h4 class="text-center">Komentar</h4>
+    <div class="col-sm-12">
+           
+            <div class="card">
+
+                
+                @foreach ($post->komens()->get() as $komen)
+               
+                <div class="card-header">
+                    <h5 class="font-weight-bold">{{ $komen->username }}</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ $komen->komentar }}</p>
+                    <form action="{{ route('post.komen.destroy', $komen) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                @endforeach
+            
+            </div>
+           
+    </div>
+</div>
+   
 @endsection

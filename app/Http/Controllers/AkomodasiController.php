@@ -14,10 +14,10 @@ class AkomodasiController extends Controller
     
     public function index()
     {
-        $akomodasis = Akomodasi::latest()->paginate(5);
+        $akomodasis = Akomodasi::latest()->paginate(10);
  
         return view('akomodasis.index',compact('akomodasis'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
  
     public function create()

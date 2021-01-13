@@ -10,7 +10,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
               <li class="breadcrumb-item active">Data Wisata</li>
             </ol>
           </div><!-- /.col -->
@@ -34,7 +34,7 @@
     </div>
     @endif
  
-    <table class="table table-bordered">
+    <table class="table table-hover">
         <tr>
             <th width="20px" class="text-center">No</th>
             <th>Nama Wisata</th>

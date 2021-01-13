@@ -12,4 +12,10 @@ class Post extends Model
     protected $fillable = [
         'nama', 'alamat','hari','jam'
     ];
+    protected $guarded = [];
+
+    public function komens()
+    {
+        return $this->hasMany(Komen::class);
+    }
 }

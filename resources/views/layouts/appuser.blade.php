@@ -23,29 +23,27 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Etourism Balikpapan
-                </a>
-                   
-                </ul>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <a class="nav-link" href="post">{{ __('Wisata') }}</a>
-                        <a class="nav-link" href="kecamatan">{{ __('Kecamatan') }}</a>
-                        <a class="nav-link" href="akomodasi/">{{ __('Akomodasi') }}</a>
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-sm text-white" href="{{ url('/') }}">Etourism Balikpapan</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="btn btn-sm active text-white" aria-current="page" href="{{ url('/post') }}">Wisata</a>
+                </li>
+                <li class="nav-item">
+                <a class="btn btn-sm active text-white" href="{{ url('/kecamatan') }}">Kecamatan</a>
+                </li>
+                <li class="nav-item">
+                <a class="btn btn-sm active text-white" href="{{ url('/akomodasi') }}">Akomodasi</a>
+                </li>
+            </ul>
+            <a class="btn btn-sm navbar-nav ml-auto text-white" href="login">Login Admin</a> 
             </div>
+        </div>
         </nav>
 
         <main class="py-4">
@@ -56,4 +54,12 @@
         </main>
     </div>
 </body>
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <a class="text-dark">Kelompok 2 B.R.I E-Tourism Balikpapan</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>

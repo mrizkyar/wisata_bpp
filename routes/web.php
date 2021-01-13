@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\KecamatanUserController;
 use App\Http\Controllers\AkomodasiUserController;
+use App\Http\Controllers\KomenController;
+use App\Http\Controllers\KomentarAkomodasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +38,7 @@ Route::post('/home/changepassword', [App\Http\Controllers\ChangePasswordControll
 Route::resource('post', PostUserController::class);
 Route::resource('kecamatan', KecamatanUserController::class);
 Route::resource('akomodasi', AkomodasiUserController::class);
+Route::post('/post/{post}/komen', [App\Http\Controllers\KomenController::class, 'store'])->name('post.komen.store');
+Route::delete('/post/{post}/komen', [App\Http\Controllers\KomenController::class, 'destroy'])->name('post.komen.destroy');
+Route::post('/akomodasi/{akomodasi}/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('akomodasi.comment.store');
+Route::delete('/akomodasi/{akomodasi}/comment', [App\Http\Controllers\CommentController::class, 'destroy'])->name('akomodasi.comment.destroy');
