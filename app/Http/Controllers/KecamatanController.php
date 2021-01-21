@@ -27,8 +27,8 @@ class KecamatanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_post' => 'required',
-            'nama_kecamatan' => 'required',
+            'kode_post' => ['required','unique:kecamatans'],
+            'nama_kecamatan' => ['required','unique:kecamatans'],
         ]);
  
         Kecamatan::create($request->all());
@@ -50,8 +50,8 @@ class KecamatanController extends Controller
     public function update(Request $request, Kecamatan $kecamatan)
     {
         $request->validate([
-            'kode_post' => 'required',
-            'nama_kecamatan' => 'required',
+            'kode_post' => ['required','unique:kecamatans'],
+            'nama_kecamatan' => ['required','unique:kecamatans'],
         ]);
  
         $kecamatan->update($request->all());

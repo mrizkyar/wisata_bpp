@@ -116,8 +116,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    
     <!-- /.content -->
   </div>
+
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->

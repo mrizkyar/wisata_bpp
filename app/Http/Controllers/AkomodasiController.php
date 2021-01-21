@@ -28,10 +28,10 @@ class AkomodasiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_akomodasi' => 'required',
-            'nama_akomodasi'=> 'required',
-            'alamat_akomodasi' => 'required',
-            'kontak_akomodasi' => 'required',
+            'kode_akomodasi' => ['required','unique:akomodasis'],
+            'nama_akomodasi'=> ['required','unique:akomodasis'],
+            'alamat_akomodasi' => ['required'],
+            'kontak_akomodasi' => ['required','unique:akomodasis'],
         ]);
  
         Akomodasi::create($request->all());

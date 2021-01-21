@@ -27,10 +27,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
-            'alamat' => 'required',
-            'hari' => 'required',
-            'jam' => 'required',
+            'nama' => ['required','unique:posts'],
+            'alamat' => ['required'],
+            'hari' => ['required'],
+            'jam' => ['required'],
         ]);
  
         Post::create($request->all());
@@ -52,10 +52,10 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'nama' => 'required',
-            'alamat' => 'required',
-            'hari' => 'required',
-            'jam' => 'required',
+            'nama' => ['required','unique:posts'],
+            'alamat' => ['required'],
+            'hari' => ['required'],
+            'jam' => ['required'],
         ]);
  
         $post->update($request->all());

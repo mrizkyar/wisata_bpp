@@ -21,7 +21,7 @@ class KomenController extends Controller
     {
         Komen::find($id)->delete();
         return redirect()->back()
-            ->with('success','Komentar deleted successfully');
+            ->with('success','Komentar delected successfully');
 
     }
 

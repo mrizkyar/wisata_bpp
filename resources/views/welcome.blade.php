@@ -57,9 +57,19 @@
                     </div>
                 </div>
         </div> 
+        <div class="col text-justify">
+        <h2>Tutorial memakai Website</h2>
+                <ol type="1">
+                    <li>Menu Login Admin untuk login sebagai Admin</li>
+                    <li>Pilih Menu yang ada pada website seperti Wisata,Kecamaytan dan Akomodasi</li>
+                    <li>Setelah pilih menu yang diinginkan, cari data yang mau dilihat lalu klik show</li>
+                    <li>Jika ingin komentar isi form lalu klik submit</li>
+                    <li>Kita juga bisa hapus komentar dengan cara klik hapus sesuai dengan komentar yang telah diinputkan</li>
+                </ol>
+        </div>
     </body>
     <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
+        
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
             © 2020 Copyright:
             <a class="text-dark">Kelompok 2 B.R.I E-Tourism Balikpapan</a>

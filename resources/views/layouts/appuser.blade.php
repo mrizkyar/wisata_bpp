@@ -41,7 +41,7 @@
                 <a class="btn btn-sm active text-white" href="{{ url('/akomodasi') }}">Akomodasi</a>
                 </li>
             </ul>
-            <a class="btn btn-sm navbar-nav ml-auto text-white" href="login">Login Admin</a> 
+            <a class="btn btn-sm navbar-nav ml-auto text-white" href="{{ url('/login') }}">Login Admin</a> 
             </div>
         </div>
         </nav>
