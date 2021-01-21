@@ -16,7 +16,7 @@ class CreateKecamatansTable extends Migration
         Schema::create('kecamatans', function (Blueprint $table) {
             $table->id();
             $table->string('kode_post')->unique();
-            $table->string('nama_kecamatan');
+            $table->string('nama_kecamatan')->unique();
             $table->timestamps();
         });
     }
