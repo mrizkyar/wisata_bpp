@@ -1,142 +1,112 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Dashboard</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+    <title>SportAve</title>
 
-  <!-- Navbar -->
-  @include('admin/header')
-  <!-- /.navbar -->
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
-  <!-- Main Sidebar Container -->
-  @include('admin/sidebar')
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <body class="antialiased">
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
+                <div class="col-sm-12">
+                    <div class="card">
+                            <div class="card-body text-center bg-primary text-white">
+                                <h1 class="card-title">Pariwisata Balikpapan</h1>
+                                <p class="card-text">Informasi seputar pariwisata Kota Balikpapan beserta Kecamatan dan juga Akomodasi nya</p>
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
 
-                <p>Data Admin</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <a href="home/users" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
+                                        <a href="{{ url('/changepassword') }}" class="dropdown-item">
+                                                Change Passwords
+                                        </a>
+                                        <a href="{{ url('edituser') }}" class="dropdown-item">
+                                            Edit Profile
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
 
-                <p>Data Wisata</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-car"></i>
-              </div>
-              <a href="home/posts" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
+                    </div>
 
-                <p>Data Kecamatan</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa fa-list"></i>
-              </div>
-              <a href="home/kecamatans" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+                </div>
+        </div>
+            
+        <div class="row text-white">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body bg-success">
+                            <h5 class="card-title">Wisata</h5>
+                            <p class="card-text"> Berisi Wisata yang terdapat di Balikpapan Mulai dari alamat dan jam buka dan hari bukanya</p>
+                            <a href="post" class="btn btn-primary">Next</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                    <div class="card-body bg-success">
+                        <h5 class="card-title">Kecamatan</h5>
+                        <p class="card-text">Berisi Informasi tentang Kecamatan yang terdapat di Balikpapan</p>
+                        <a href="kecamatan" class="btn btn-primary">Next</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                    <div class="card-body bg-success">
+                        <h5 class="card-title">Akomodasi</h5>
+                        <p class="card-text"> Berisi Informasi tentang Akomodasi yang terdapat di Balikpapan</p>
+                        <a href="akomodasi" class="btn btn-primary">Next</a>
+                    </div>
+                    </div>
+                </div>
+        </div> 
+        <div class="col text-justify">
+        <h2>Tutorial memakai Website</h2>
+                <ol type="1">
+                    <li>Menu Login Admin untuk login sebagai Admin</li>
+                    <li>Pilih Menu yang ada pada website seperti Wisata,Kecamaytan dan Akomodasi</li>
+                    <li>Setelah pilih menu yang diinginkan, cari data yang mau dilihat lalu klik show</li>
+                    <li>Jika ingin komentar isi form lalu klik submit</li>
+                    <li>Kita juga bisa hapus komentar dengan cara klik hapus sesuai dengan komentar yang telah diinputkan</li>
+                </ol>
+        </div>
+    </body>
+    <footer class="bg-light text-center text-lg-start">
+        
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2020 Copyright:
+            <a class="text-dark">Kelompok 2 B.R.I E-Tourism Balikpapan</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <p>Data Akomodasi</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-bed"></i>
-              </div>
-              <a href="home/akomodasis" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  @include('admin/footer')
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
-</body>
 </html>

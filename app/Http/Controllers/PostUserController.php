@@ -7,6 +7,10 @@ use App\Models\Post;
  
 class PostUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $posts = Post::orderBy('created_at', 'DESC')->paginate(10);

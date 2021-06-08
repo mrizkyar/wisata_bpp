@@ -20,8 +20,13 @@
                             <div class="card-body text-center bg-primary text-white">
                                 <h1 class="card-title">Pariwisata Balikpapan</h1>
                                 <p class="card-text">Informasi seputar pariwisata Kota Balikpapan beserta Kecamatan dan juga Akomodasi nya</p>
-                                <a class="btn btn-warning btn-sm" href="login">Login Admin</a>
-                            </div>
+                                @if(Auth::check() && Auth::user()->admin == 1)
+                                    <a class="btn btn-warning btn-sm" href="admin/dashboard">Dashboard</a>
+                            @else
+                                <a class="btn btn-warning btn-sm" href="login">Login</a>
+                                <a class="btn btn-warning btn-sm" href="register">Register</a>
+                            @endif
+
 
                     </div>
 

@@ -41,7 +41,53 @@
                 <a class="btn btn-sm active text-white" href="{{ url('/akomodasi') }}">Akomodasi</a>
                 </li>
             </ul>
-            <a class="btn btn-sm navbar-nav ml-auto text-white" href="{{ url('/login') }}">Login Admin</a> 
+            <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @if(Auth::check() && Auth::user()->admin == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('admin/dashboard') }}">{{ __('Dashboard') }}</a>
+                            </li>
+                            
+                        @elseif(Auth::check() && Auth::user()->admin != 1)
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a href="{{ url('/changepassword') }}" class="dropdown-item">
+                                            Change Passwords
+                                    </a>
+                                    <a href="{{ url('edituser') }}" class="dropdown-item">
+                                         Edit Profile
+                                     </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @else
+                            @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
+                                
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                        @endif
+                    </ul>
+
             </div>
         </div>
         </nav>

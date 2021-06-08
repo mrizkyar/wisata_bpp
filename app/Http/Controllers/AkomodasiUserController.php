@@ -7,7 +7,10 @@ use App\Models\Akomodasi;
  
 class AkomodasiUserController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $akomodasis = Akomodasi::orderBy('created_at', 'DESC')->paginate(10);

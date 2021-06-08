@@ -5,8 +5,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ChangePasswordController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\KecamatanUserController;
 use App\Http\Controllers\AkomodasiUserController;
@@ -26,15 +26,20 @@ use App\Http\Controllers\KomentarAkomodasiController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/home/posts', PostController::class);
-Route::resource('admin', AdminController::class);
-Route::resource('/home/kecamatans', KecamatanController::class);
-Route::resource('/home/akomodasis', AkomodasiController::class);
-Route::resource('/home/users', UserController::class);
+Route::resource('/admin/posts', PostController::class);
+Route::resource('/admin/kecamatans', KecamatanController::class);
+Route::resource('/admin/akomodasis', AkomodasiController::class);
+
+Route::get('admin/dashboard', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('admin');
+Route::resource('admin/users', UserController::class);
+Route::get('/edituser', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+Route::put('/edituser', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'index']);
-Route::post('/home/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'store'])->name('change.password');
+Route::get('/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'index']);
+Route::post('/changepassword', [App\Http\Controllers\ChangePasswordController::class, 'store'])->name('change.password');
+
 Route::resource('post', PostUserController::class);
 Route::resource('kecamatan', KecamatanUserController::class);
 Route::resource('akomodasi', AkomodasiUserController::class);

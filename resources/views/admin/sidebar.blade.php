@@ -12,7 +12,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="/home" class="nav-link ">
+            <a href="/admin/dashboard" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -20,7 +20,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/home/users" class="nav-link">
+            <a href="/admin/users" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Data Admin
@@ -28,7 +28,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/home/posts" class="nav-link">
+            <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-car"></i>
               <p>
                  Data Wisata
@@ -36,7 +36,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/home/kecamatans" class="nav-link">
+            <a href="/admin/kecamatans" class="nav-link">
               <i class="nav-icon fas fa fa-list"></i>
               <p>
                 Data Kecamatan
@@ -44,7 +44,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/home/akomodasis" class="nav-link">
+            <a href="/admin/akomodasis" class="nav-link">
               <i class="nav-icon fas fa-bed"></i>
               <p>
                 Data Akomodasi

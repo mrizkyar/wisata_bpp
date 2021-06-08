@@ -1,6 +1,6 @@
-@extends('admin.template')
+@extends('layouts.appuser')
  
-@section('konten')
+@section('content')
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-left">
@@ -23,7 +23,7 @@
         </div>
     @endif
  
-    <form action="{{ route('users.update',$user->id) }}" method="POST">
+    <form action="{{ route('users.update') }}" method="POST">
         @csrf
         @method('PUT')
          <div class="row">

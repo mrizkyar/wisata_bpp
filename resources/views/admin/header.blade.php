@@ -40,10 +40,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a href="http://127.0.0.1:8000/home/users/{{ Auth::user()->id }}/edit" class="dropdown-item">
+                                    <a href="{{ url('edituser') }}" class="dropdown-item">
                                          Edit Profile
                                      </a>
-                                     <a href="/home/changepassword" class="dropdown-item">
+                                     <a href="/changepassword" class="dropdown-item">
                                             Change Passwords
                                     </a>
                                 </div>

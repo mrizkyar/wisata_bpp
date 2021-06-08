@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
  
 class UserController extends Controller
 {
@@ -15,8 +16,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(5);
-        
- 
         return view('users.index',compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -27,23 +26,51 @@ class UserController extends Controller
         return view('users.show',compact('user'));
     }
  
-    public function edit(User $user)
+    public function edit()
     {
-        return view('users.edit',compact('user'));
+       if(Auth::user())
+       {
+           $user = User::find(Auth::user()->id);
+           if($user)
+           {
+               return view('users.edit')->withUser($user);
+           }
+            else
+           {
+               return redirect()->back();
+           }
+       } 
+       else
+       {
+        return redirect()->back();
+       } 
     }
  
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
+        $user  = User::find(Auth::user()->id);
+        if ($user)
+        {
+            $validate = $request->validate([
+                'name'=>'required',
+                'email'=>'required'
+            ]);
 
-        ]);
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+
+            $user->save();
+            return redirect('/')->with('success','user edited successfully.');
+            
+
+        }
+        else
+        {
+            return redirect()->back();
+        }
+
+        
  
-        $user->update($request->all());
- 
-        return redirect()->route('home')
-                        ->with('success','User updated successfully');
     }
  
     public function destroy(User $user)
